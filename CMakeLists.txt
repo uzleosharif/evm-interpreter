@@ -41,9 +41,15 @@ add_executable(example)
 target_sources(example
   PRIVATE example/main.cpp
 )
+target_compile_options(example
+  PRIVATE "-fsanitize=address,leak"
+)
 target_compile_features(example
   PRIVATE cxx_std_26
 )
 target_link_libraries(example
   PRIVATE evmi
+)
+target_link_options(example
+  PRIVATE "-fsanitize=address,leak"
 )
