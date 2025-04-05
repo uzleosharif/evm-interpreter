@@ -11,8 +11,17 @@ project(evm-interpreter
   LANGUAGES CXX
 )
 
+
 set(CMAKE_CXX_MODULE_STD ON)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
+add_library(magic_enum STATIC)
+target_sources(magic_enum PUBLIC
+  FILE_SET modules
+    TYPE CXX_MODULES
+    FILES lib/magic_enum/magic_enum.cppm
+)
+target_compile_features(magic_enum PRIVATE cxx_std_26)
 
 add_library(evmi SHARED)
 target_sources(evmi PUBLIC
@@ -24,9 +33,11 @@ target_compile_features(evmi
   PRIVATE cxx_std_26
   INTERFACE cxx_std_20
 )
-
-add_executable(example
+target_link_libraries(evmi
+  PRIVATE magic_enum
 )
+
+add_executable(example)
 target_sources(example
   PRIVATE example/main.cpp
 )
