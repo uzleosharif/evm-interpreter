@@ -1,5 +1,6 @@
 
 
 import evm_interpreter;
+import std;
 
-auto main() -> int { uzleo::evm::interpreter::HelloWorld(); }
+auto main() -> int {}
