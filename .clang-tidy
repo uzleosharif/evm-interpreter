@@ -72,6 +72,7 @@ Checks:
   - "-readability-uppercase-literal-suffix"
   # This is too noisy about multiplication and addition precedence.
   - "-readability-math-missing-parentheses"
+  - "-readability-redundant-member-init"
 
 CheckOptions:
   readability-identifier-naming.ClassCase: CamelCase
