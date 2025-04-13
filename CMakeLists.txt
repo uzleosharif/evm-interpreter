@@ -33,7 +33,7 @@ set_target_properties(fmt::fmt
 )
 
 
-add_library(evmi SHARED)
+add_library(evmi)
 target_sources(evmi PUBLIC
   FILE_SET modules
     TYPE CXX_MODULES
